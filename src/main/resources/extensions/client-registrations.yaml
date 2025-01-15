@@ -41,10 +41,10 @@ spec:
   authorizationGrantType: "authorization_code"
   redirectUri: "{baseUrl}/login/oauth2/code/gitlab"
   scopes:
-    - "read_user"
+    - "profile"
   authorizationUri: "https://pass.liteyuki.icu/login/oauth/authorize"
   tokenUri: "https://pass.liteyuki.icu/api/login/oauth/access_token"
   userInfoUri: "https://pass.liteyuki.icu/api/userinfo"
   userInfoAuthenticationMethod: "header"
-  userNameAttributeName: "openid"
+  userNameAttributeName: "sub"
   clientName: "Liteyuki Passport"
