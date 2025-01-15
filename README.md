@@ -1,6 +1,8 @@
 # plugin-oauth2
 
-Halo 2.0 的 OAuth2 第三方登录插件。
+Halo 2.0 的 OAuth2 第三方登录插件(for Liteyuki Passport)。
+
+遵循GPL3.0许可从[上游仓库](https://github.com/halo-sigs/plugin-oauth2)fork修改分发
 
 ## 使用方法
 
