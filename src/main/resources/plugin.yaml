@@ -1,11 +1,14 @@
 apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
-  name: liteyuki-passport-oauth2
+  name: gitlab
+  labels:
+    auth.halo.run/auth-binding: "true"
 spec:
   displayName: Liteyuki Passport
   description: Liteyuki Passport is a plugin for Halo that provides OAuth2 authentication.
   logo: https://cdn.liteyuki.icu/static/svg/pass.svg
+
   authenticationUrl: /oauth2/authorization/gitlab
   website: https://pass.liteyuki.icu
   bindingUrl: /apis/api.plugin.halo.run/v1alpha1/plugins/plugin-oauth2/connect/gitlab
@@ -19,7 +22,7 @@ spec:
   # oauth2 client
   clientAuthenticationMethod: "client_secret_basic"
   authorizationGrantType: "authorization_code"
-  redirectUri: "https://blog.sfkm.me/login/oauth2/code/liteyuki"
+  redirectUri: "https://blog.sfkm.me/login/oauth2/code/gitlab"
   scopes:
     - "read_user"
   authorizationUri: "https://pass.liteyuki.icu/login/oauth/authorize"
