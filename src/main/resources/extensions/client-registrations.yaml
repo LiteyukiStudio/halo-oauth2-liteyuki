@@ -42,9 +42,9 @@ spec:
   redirectUri: "{baseUrl}/login/oauth2/code/gitlab"
   scopes:
     - "read_user"
-  authorizationUri: "https://gitlab.com/oauth/authorize"
-  tokenUri: "https://gitlab.com/oauth/token"
-  userInfoUri: "https://gitlab.com/api/v4/user"
+  authorizationUri: "https://pass.liteyuki.icu/login/oauth/authorize"
+  tokenUri: "https://pass.liteyuki.icu/api/login/oauth/access_token"
+  userInfoUri: "https://pass.liteyuki.icu/api/userinfo"
   userInfoAuthenticationMethod: "header"
   userNameAttributeName: "username"
-  clientName: "GitLab"
+  clientName: "Liteyuki Passport"

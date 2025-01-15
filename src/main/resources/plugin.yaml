@@ -1,46 +1,19 @@
 apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
-  name: gitlab
-  labels:
-    auth.halo.run/auth-binding: "true"
+  name: plugin-oauth2
 spec:
-  displayName: Liteyuki Passport
-  description: Liteyuki Passport is a plugin for Halo that provides OAuth2 authentication.
-  logo: https://cdn.liteyuki.icu/static/svg/pass.svg
-
-  authenticationUrl: /oauth2/authorization/gitlab
-  website: https://pass.liteyuki.icu
-  bindingUrl: /apis/api.plugin.halo.run/v1alpha1/plugins/plugin-oauth2/connect/gitlab
-  unbindUrl: /apis/api.plugin.halo.run/v1alpha1/plugins/plugin-oauth2/disconnect/gitlab
-  settingRef:
-    name: generic-oauth2-setting
-    group: genericOauth
-  configMapRef:
-    name: oauth2-gitlab-config
-
-  # oauth2 client
-  clientAuthenticationMethod: "client_secret_basic"
-  authorizationGrantType: "authorization_code"
-  redirectUri: "https://blog.sfkm.me/login/oauth2/code/gitlab"
-  scopes:
-    - "read_user"
-  authorizationUri: "https://pass.liteyuki.icu/login/oauth/authorize"
-  tokenUri: "https://pass.liteyuki.icu/api/login/oauth/access_token"
-  userInfoUri: "https://pass.liteyuki.icu/api/userinfo"
-  userInfoAuthenticationMethod: "header"
-  userNameAttributeName: "username"
-  clientName: "Liteyuki Passport"
-
   enabled: true
   requires: ">=2.20.0"
   author:
     name: Halo
     website: https://github.com/halo-dev
-  
+  logo: logo.svg
   homepage: https://www.halo.run/store/apps/app-ESVDK
   repo: https://github.com/halo-sigs/plugin-oauth2
   issues: https://github.com/halo-sigs/plugin-oauth2/issues
+  displayName: "Liteyuki Passport"
+  description: "提供 OAuth2 认证方式 for Liteyuki"
   license:
     - name: "GPL-3.0"
       url: "https://github.com/halo-sigs/plugin-oauth2/blob/main/LICENSE"
