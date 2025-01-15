@@ -4,60 +4,23 @@ Halo 2.0 的 OAuth2 第三方登录插件(for Liteyuki Passport)。
 
 遵循GPL3.0许可从[上游仓库](https://github.com/halo-sigs/plugin-oauth2)fork修改分发
 
-## 使用方法
+这里提供一个可以对接任意OAuth2协议的第三方登录的方法
 
-1. 在 [Releases](https://github.com/halo-sigs/plugin-oauth2/releases) 下载最新的 JAR 文件。
-2. 在 Halo 后台的插件管理上传 JAR 文件进行安装。
-3. 进入 Console 端的用户管理，点击右上角的 `认证方式` 按钮进入认证方式管理列表即可看到当前插件提供的认证方式。
-4. 按照下方的配置指南配置所需的认证方式并启用。
-5. 进入当前登录用户的个人资料页面，即可绑定已启用的认证方式。
+参考[halo-sigs/plugin-oauth2/issues/23](https://github.com/halo-sigs/plugin-oauth2/issues/23)
 
-## 配置指南
+但是这个issue并没有解决我的问题，但是给我提供了尝试的思路，直接新增不起效果，但是可以尝试更改现有的配置
 
-目前支持的认证方式：
+## 修改和接入其他provider的方法
 
-| 服务商 | 文档                                                                                                                                                   | Halo 所需配置               | Scope        | 回调地址                              |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------- | ------------ | ------------------------------------- |
-| GitHub | [https://docs.github.com](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)                                        | `Client ID` `Client Secret` | 无需手动设置 | `<SITE_URL>/login/oauth2/code/github` |
-| GitLab | [https://docs.gitlab.com](https://docs.gitlab.com/ee/integration/oauth_provider.html#configure-gitlab-as-an-oauth-20-authentication-identity-provider) | `Client ID` `Client Secret` | `read_user`  | `<SITE_URL>/login/oauth2/code/gitlab` |
-| Gitee  | <https://gitee.com/oauth/applications>                                                                                                                 | `Client ID` `Client Secret` | `user_info`  | `<SITE_URL>/login/oauth2/code/gitee`  |
+定位到[src/main/resources/extensions/auth-provider.yaml](src/main/resources/extensions/auth-provider.yaml)文件
+参考着改一个你的OAuth2第三方登录的信息
 
-注意事项：
+然后定位到[src/main/resources/extensions/client-registrations.yaml](src/main/resources/extensions/client-registrations.yaml)，按照提示填入你的OAuth2第三方登录的配置
 
-1. 如果认证失败，回调地址请使用 `http` 尝试。
-2. <SITE_URL> 是不包含 `console` 的。
-3. 如果你用于部署的服务器无法访问 GitHub，那 GitHub 认证会失败，其它同理，请先确认连通性。
-
-## 开发环境
-
-插件开发的详细文档请查阅：<https://docs.halo.run/developer-guide/plugin/hello-world>
+使用jdk17编译，然后打包jar
 
 ```bash
-git clone git@github.com:halo-sigs/plugin-oauth2.git
-
-# 或者当你 fork 之后
-
-git clone git@github.com:{your_github_id}/plugin-oauth2.git
-```
-
-```bash
-cd path/to/plugin-oauth2
-```
-
-```bash
-# macOS / Linux
 ./gradlew build
-
-# Windows
-./gradlew.bat build
 ```
 
-修改 Halo 配置文件：
-
-```yaml
-halo:
-  plugin:
-    runtime-mode: development
-    fixedPluginPath:
-      - "/path/to/plugin-oauth2"
-```
+最后在[built/libs](built/libs)目录下找到生成的jar文件，上传到你的Halo博客的插件管理页面即可
