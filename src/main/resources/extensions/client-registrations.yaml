@@ -46,5 +46,5 @@ spec:
   tokenUri: "https://pass.liteyuki.icu/api/login/oauth/access_token"
   userInfoUri: "https://pass.liteyuki.icu/api/userinfo"
   userInfoAuthenticationMethod: "header"
-  userNameAttributeName: "username"
+  userNameAttributeName: "openid"
   clientName: "Liteyuki Passport"
