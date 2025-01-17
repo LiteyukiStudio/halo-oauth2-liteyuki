@@ -24,3 +24,7 @@ Halo 2.0 的 OAuth2 第三方登录插件(for Liteyuki Passport)。
 ```
 
 最后在[built/libs](built/libs)目录下找到生成的jar文件，上传到你的Halo博客的插件管理页面即可
+
+在身份认证处选择Liteyuki Passport，填入客户端ID和客户端密钥即可
+
+可以fork修改以上内容接入任意OAuth2协议的第三方登录
