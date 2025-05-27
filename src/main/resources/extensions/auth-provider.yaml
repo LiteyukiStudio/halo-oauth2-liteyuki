@@ -50,8 +50,8 @@ metadata:
 spec:
   displayName: Liteyuki Passport
   description: GitLab Inc. is an open-core company that operates GitLab, a DevOps software package which can develop, secure, and operate software.
-  logo: https://cdn.liteyuki.icu/static/svg/pass.svg
-  website: https://liteyuki.icu
+  logo: https://cdn.liteyuki.org/static/svg/pass.svg
+  website: https://liteyuki.org
   authenticationUrl: /oauth2/authorization/gitlab
   bindingUrl: /oauth2/authorization/gitlab
   unbindUrl: /apis/uc.api.auth.halo.run/v1alpha1/user-connections/gitlab/disconnect
